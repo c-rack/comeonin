@@ -13,7 +13,9 @@ otp_release:
   - 18.1
 sudo: false
 before_install:
-  - if [ $TRAVIS_OS_NAME == "osx" ] ; then curl -O https://raw.githubusercontent.com/yrashk/kerl/master/kerl; chmod a+x kerl; mv kerl /usr/local/bin/ ; fi
+  - if [ $TRAVIS_OS_NAME == "osx" ] ; then curl -O https://raw.githubusercontent.com/yrashk/kerl/master/kerl ; fi
+  - if [ $TRAVIS_OS_NAME == "osx" ] ; then chmod a+x kerl ; fi
+  - if [ $TRAVIS_OS_NAME == "osx" ] ; then mv kerl /usr/local/bin/ ; fi
 after_script:
   - mix deps.get --only docs
   - MIX_ENV=docs mix inch.report
